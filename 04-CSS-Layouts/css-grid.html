@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      .el--1 {
+        background-color: blueviolet;
+      }
+      .el--2 {
+        background-color: orangered;
+      }
+      .el--3 {
+        background-color: green;
+        height: 150px;
+      }
+      .el--4 {
+        background-color: goldenrod;
+      }
+      .el--5 {
+        background-color: palevioletred;
+      }
+      .el--6 {
+        background-color: steelblue;
+      }
+      .el--7 {
+        background-color: yellow;
+      }
+      .el--8 {
+        background-color: crimson;
+      }
+
+      .container--1 {
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: #ddd;
+        font-size: 40px;
+        margin: 40px;
+
+        /* CSS GRID */
+        display: grid;
+        /* grid-template-columns: 250px 250px 1fr 1fr; */
+        /* grid-template-columns: 1fr 1fr ; */
+
+        /* it will generate n no. of columns */
+        /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+        /* here fr means adjusting the element to fill-up the reamining space, so in this grid container there is basically initially all of this empty space here from left side to right side and then as we use the fr unit then all of that empty space will get divided up equally between these four columns and i.e. each of them has value of 1, now let's now manipulate values:  */
+        /* grid-template-columns: 3fr 1fr 1fr 1fr; */
+        /* now the first column takes double the empty space:
+        total fractions= 6
+        1st column = 3 fractions(half space)
+        rest 3(half space left) = 1 fraction(each) */
+
+        /* grid-template-columns: 1fr 1fr 1fr auto; */
+        /* auto means that it will only take exactly the size that is necessary to fill it's content */
+
+        grid-template-columns: repeat(4, 1fr);
+
+        /* Note:- elements will stretch their height relative to the tallest element which is green one in this case, and width that we define in grid-template-columns */
+
+        /* grid-template-rows: 300px 200px; */
+        /* and now the green one here which has the defined height of 150px didn't stretch across the entire cell while the other grid items fill the entire cell  */
+
+        /* grid-template-rows: 1fr 1fr; */
+        /* took height from the green one both rows, if green height set to 0 then it will take height of the tallest element which is in this case languages */
+
+        /* grid-template-rows: 1fr 1fr; */
+        /* grid-template-rows: 1fr auto; */
+        grid-template-rows: 1fr 1fr;
+        /* height: 500px; */
+
+        /* gap:30px ; */
+        /*grid-gap===gap and
+         margin doesn't work in css grid */
+
+        column-gap: 30px;
+        row-gap: 60px;
+
+        /* display: none; */
+      }
+
+      /* Now let's talk about how to place a certain grid item into another grid cell: */
+      .el--8 {
+        grid-column: 2/3;
+        /* grid-row: 1 / span 2; */
+        grid-row: 1/2;
+      }
+
+      .el--2 {
+        /* grid-column: 1 / 4; */
+        /* grid-column: 1/3; */
+        /* grid-column: 1 / span 4; */
+        /* what if we doesn't know the end then: */
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        /* grid-row: 2; */
+      }
+
+      .el--6 {
+        /* grid-row: 3 / 5; */
+      }
+
+      .container--2 {
+        /* display: none; */
+        /* STARTER */
+        font-family: sans-serif;
+        background-color: black;
+        font-size: 40px;
+        margin: 40px;
+
+        width: 700px;
+        height: 600px;
+
+        /* CSS GRID */
+        display: grid;
+        grid-template-columns: 125px 200px 125px;
+        grid-template-rows: 250px 100px;
+        gap: 50px;
+        /* once again no. 3 here has the height of 150px and therefore it doesn't fill up the entire track height of 250px that's why we have black color below it */
+
+        /* Aligning tracks inside container: distribute empty space */
+        justify-content: center;
+        /* justify-content: space-between; */
+
+        align-content: center;
+        /* so with this the entire grid in now centered inside of the grid container */
+
+        /* align-content: space-between; */
+        /* align-content: start; */
+        /* align-content: end; */
+        /* and this all only makes sense because the grid container is actually bigger than the grid itself  */
+
+        /* Aligning items INSIDE cells: moving items around inside cells */
+        align-items: center;
+        justify-items: center;
+      }
+
+      .el--3 {
+        align-self: end;
+        justify-self: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container--1">
+      <div class="el el--1">(1) HTML</div>
+      <div class="el el--2">(2) and</div>
+      <div class="el el--3">(3) CSS</div>
+      <div class="el el--4">(4) are</div>
+      <div class="el el--5">(5) amazing</div>
+      <div class="el el--6">(6) languages</div>
+      <!-- <div class="el el--7">(7) to</div> -->
+      <div class="el el--8">(8) learn</div>
+    </div>
+
+    <div class="container--2">
+      <div class="el el--1">(1)</div>
+      <div class="el el--3">(3)</div>
+      <div class="el el--4">(4)</div>
+      <div class="el el--5">(5)</div>
+      <div class="el el--6">(6)</div>
+      <div class="el el--7">(7)</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////FlexBox:
+
+(a.) On container:
+
+display: flex;
+align-items: center;
+align-items: start;
+align-items: end;
+align-items: stretch;
+justify-content: center;
+justify-content: space-evenly;
+justify-content: flex-start;
+gap: 10px;
+flex-direction: column;
+
+
+(b.) On element: .el--1,2,3,4....
+
+align-self: flex-start;
+align-self: stretch;
+order: -1; (default: 0)
+order: 1
+
+(c.) On element/elements: .el, .el--1,2,3,4....
+
+Default:
+flex-grow: 0;
+flex-shrink: 1;
+flex-basis: auto;
+
+Custom:
+flex-basis: 300px;
+flex-shrink: 0;
+flex-grow: 1;
+
+ex:
+.el{                     
+    flex-grow: 1    
+}
+
+.el--1{
+    flex-grow: 2
+}
+
+empty space = 600px
+total el = 5
+4 el = 100px
+1 el = 200px
+      
+complete: flex:1, flex-grow flex-shrink flex-basis

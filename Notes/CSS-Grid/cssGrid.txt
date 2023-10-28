@@ -1,0 +1,42 @@
+CSS-Grid:
+
+(a.) Container:
+
+display: grid;
+grid-template-columns: 250px 250px 1fr 1fr;
+grid-template-columns: 3fr 1fr 1fr 1fr;
+grid-template-columns: 3fr 1fr auto auto;
+grid-template-columns: repeat(4, 1fr);
+
+note: elements will stretch their heights and widths relative to the tallest and widest element and the element which has the defined height and width will not stretch
+
+grit-template-rows: 300px 200px;
+grit-template-rows: 1fr 1fr;
+gap: 30px;
+column-gap: 40px;
+row-gap: 60px;
+
+justify-content: center;
+align-content: center;
+align-content: space-between;
+align-content: start;
+align-content: end;
+//this all only makes sense because grid container is actually bigger than the grid itself
+
+Inside cells:
+align-items: center;
+justify-items: center;
+
+(b.)On element: .el--1,2,3,4...
+grid-column: 1/4;
+grid-column: 1/3;
+grid-column: 1/span 4;
+grid-column: 1/-1;
+grid-row: 2/3;
+grid-row: 2;
+grid-row: 3/5;
+align-self: end;
+justify-self: end;
+
+
+

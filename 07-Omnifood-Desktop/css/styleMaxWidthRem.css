@@ -1,0 +1,77 @@
+/* 
+---- 1. TYPOGRAPHY SYSTEM:
+
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font Weights:
+Default: 400
+
+- Line Heights:
+Default: 1
+
+
+
+---- 2. COLORS:
+
+- Primary: #e67e22
+
+- Tints(darker version):
+- Shaded(lighter version):
+- Accents:
+- Greys: #555
+
+--- 5. SHADOWS:
+
+--- 6. BORDER RADIUS:
+
+--- 7. WHITESPACE
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+html {
+  /* font-size: 10px; */
+  /* now 1rem = 10px */
+  /* after setting this no matter what the user would set the font-size to now we would always have our default font-size at 10px and so this would create huge usability problems for users who for some reason have to increase or even to decrease the font-size of their browsers and so in order to avoid that we will not set the font-size to a fixed value like above but instead to a percentage of the default font-size of the browser: */
+
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  /* so we want our font-size to be 10px, however the default is 16px and so we can simple divide it by 10
+  10px/16px= 0.625  */
+
+  /* 16*0.625=10
+  so for 18px => 18 * 0.625 = 11.2 
+  and so by using this technique we did actually respect the user's font-size setting and in the same way if user set it like to 12 for some reason then our default font-size on our page so 1rem will then 7.5 which in turn will make it so that the entire layout is scaled down a little bit */
+}
+
+.test {
+  /* width: 1000px; */
+  /* here browser is generating scroll bars when when the viewport gets smaller than the width of test element however, let's say that we don't want that to happen and istead the behavior that we want to see is that when there's no more additional space to fit these 1000px then the element should  simply have the width of the parent container:  */
+  /* max-width: 1000px; */
+
+  /* REM
+default size: 16px */
+  max-width: 50rem;
+  /* 50*16px= 800px
+the power of rem is that we only need to define the font-size on the html element and then at all places where the rem is used is going to calculate the sizes of elements relative to the font-size that we specified */
+  color: white;
+  font-size: 2rem;
+  padding: 4rem;
+
+  background-color: red;
+}
